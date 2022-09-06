@@ -7,8 +7,18 @@ console.log('js working')
 //o container width e height são os mesmos, a referência é o menor, desktop = height
 
 
+// ============================================= FUNÇÕES =======================================
+//==============================================================================================
 //FUNÇÃO TO POPULATE GRID WITH DIVS:
 function populateGrid(gridSize){
+    if(gridSize>100){
+        gridSize = 100;
+    }
+    if(typeof(gridSize) != 'number'){
+        console.log(typeof(gridSize));
+        return alert('Only numbers allowed.');
+    }
+
     const gridContainer = document.querySelector(".grid-container");
     //apagar todo o conteúdo de grid:
     gridContainer.replaceChildren('') //substitui todos os filhos do elemento por '' (vazio)
@@ -23,7 +33,7 @@ function populateGrid(gridSize){
         gridContainer.append(div);
     }
 
-    hoverEffect() //adiciona event listener para toda grid
+    hoverHandler() //adiciona event listener para toda grid
 
     return ;
 }
@@ -33,10 +43,22 @@ function draw(e){
     return e.target.classList.add('active');
 }
 
+function promptGridConfig(){
+    return populateGrid(Number(prompt('Set grid size (X by X): ')))
+}
+
+
+//======================================= EVENT LISTENERS ===========================
+//===================================================================================
 //EVENT LISTENER PARA TODO "BOX":
-function hoverEffect(){
+function hoverHandler(){
     let gridBoxes = document.querySelectorAll(".box");
     return gridBoxes.forEach(box=>box.addEventListener('mouseenter', draw));
 }
 
+//SET GRID
+let setGridButton = document.querySelector('.btn-grid-size');
+setGridButton.addEventListener('click',promptGridConfig);
+
+//starts with a 8x8 grid
 populateGrid(8)

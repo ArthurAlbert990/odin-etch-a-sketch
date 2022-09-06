@@ -6,25 +6,37 @@ console.log('js working')
 // no css, repeat(16, 1fr) irá gerar 1 grid com 16 colunas, cada seção ocupa 1 fração.
 //o container width e height são os mesmos, a referência é o menor, desktop = height
 
-//FUNÇÕES TO POPULATE GRID WITH DIVS:
 
+//FUNÇÃO TO POPULATE GRID WITH DIVS:
 function populateGrid(gridSize){
     const gridContainer = document.querySelector(".grid-container");
-    //apagar todo o conteúdo de grid
+    //apagar todo o conteúdo de grid:
     gridContainer.replaceChildren('') //substitui todos os filhos do elemento por '' (vazio)
-
 
     //atualiza var gridSize do css de acordo com o gridSize da função
     document.documentElement.style.setProperty(`--gridSize`,`${gridSize}`);
 
-    for (let x =1; x< (gridSize * gridSize); x++){
+    for (let x =0; x< (gridSize * gridSize); x++){
         let div = document.createElement("div");
         div.classList.add('box')
         div.g
         gridContainer.append(div);
     }
-    
+
+    hoverEffect() //adiciona event listener para toda grid
+
     return ;
 }
 
-//populateGrid()
+//FUNÇÃO PARA DESENHAR:
+function draw(e){
+    return e.target.classList.add('active');
+}
+
+//EVENT LISTENER PARA TODO "BOX":
+function hoverEffect(){
+    let gridBoxes = document.querySelectorAll(".box");
+    return gridBoxes.forEach(box=>box.addEventListener('mouseenter', draw));
+}
+
+populateGrid(8)

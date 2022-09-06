@@ -45,3 +45,7 @@ body{
     background-color: lightblue;
     border-style: dashed;
 }
+
+.active{
+    background-color: lightblue;
+}

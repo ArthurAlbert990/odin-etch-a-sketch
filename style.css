@@ -21,17 +21,28 @@ html, body{
 
 body{
     display: flex;
+    flex-direction: row;
+}
+.menu{
+    height: 100%;
+    background-color: ghostwhite;
+    padding: 25px;
+}
+
+.content{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
 }
 
 .grid-container{
     display: grid;
     grid-template-columns: repeat(var(--gridSize), 1fr);
     grid-template-rows: repeat(var(--gridSize),1fr);
-    height: 100vh;
-    width: 100vh;
+    height: 80vh;
+    width: 80vh;
 }
 
 .box{
@@ -48,4 +59,19 @@ body{
 
 .active{
     background-color: lightblue;
+}
+
+.btn-grid-size{
+    width: 120px;
+    height: 36px;
+    border-radius: 8px;
+    border-style: none;
+    color: ghostwhite;
+    background-color: dodgerblue;
+
+}
+
+button:hover{
+    transform: scale(1.10);
+    transition: all 0.15s;
 }

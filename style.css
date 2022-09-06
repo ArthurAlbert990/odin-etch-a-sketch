@@ -40,3 +40,8 @@ body{
     /* background-color: rgba(0, 119, 255, 0.637); */
     border: 1px solid whitesmoke;
 }
+
+.box:hover{
+    background-color: lightblue;
+    border-style: dashed;
+}

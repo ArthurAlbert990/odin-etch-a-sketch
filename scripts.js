@@ -6,6 +6,10 @@ console.log('js working')
 // no css, repeat(16, 1fr) irá gerar 1 grid com 16 colunas, cada seção ocupa 1 fração.
 //o container width e height são os mesmos, a referência é o menor, desktop = height
 
+//================================= LOG / ANOTAÇÕES ===============
+//[ A FAZER ] FUNÇÃO PARA IDENTIFICAR COR DO COLOR PICKER
+// [ A FAZER ] FUNÇÃO "RAINBOW", COR RANDÔMICA A CADA BOX!
+
 
 // ============================================= FUNÇÕES =======================================
 //==============================================================================================

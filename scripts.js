@@ -11,7 +11,7 @@ console.log('js working')
 function populateGrid(gridSize){
     const gridContainer = document.querySelector(".grid-container");
     //apagar todo o conteúdo de grid
-    
+    gridContainer.replaceChildren('') //substitui todos os filhos do elemento por '' (vazio)
 
 
     //atualiza var gridSize do css de acordo com o gridSize da função

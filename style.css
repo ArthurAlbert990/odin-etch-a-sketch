@@ -31,7 +31,8 @@ body{
     gap: 25px;
     min-width: fit-content;
     height: 100%;
-    background-color: #d3d3d34d;
+    background-color: #f7f7f8;
+    border-right: 1px solid #d3d3d34d;
     padding: 25px 15px;
 }
 

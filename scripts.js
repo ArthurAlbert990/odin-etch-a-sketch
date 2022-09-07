@@ -42,15 +42,28 @@ function populateGrid(gridSize){
     return ;
 }
 
-//FUNÇÃO PARA DESENHAR:
+//FUNÇÃO PARA DESENHAR:;
+
 function draw(e){
-    return e.target.classList.add('active');
+    e.target.classList.add('active');
+    return ;
 }
 
 function promptGridConfig(){
     return populateGrid(Number(prompt('Set grid size (X by X): ')))
 }
 
+//FUNÇÃO COLOR PICKER:
+//obtém root
+const root = document.querySelector(':root');
+
+function updatePaintColor(e){
+    //Atualiza a variável --paintColor em root
+    //Desta maneira, a cor já desenhada também se altera
+    //caso queira manter as cores já desenhadas
+    //alterar o atributo do css, não a variável.
+    return root.style.setProperty('--paintColor',e.target.value);
+}
 
 //======================================= EVENT LISTENERS ===========================
 //===================================================================================
@@ -63,6 +76,10 @@ function hoverHandler(){
 //SET GRID
 let setGridButton = document.querySelector('.btn-grid-size');
 setGridButton.addEventListener('click',promptGridConfig);
+
+//COLOR PICKER
+let colorPicker = document.querySelector('.paint-color');
+colorPicker.addEventListener('input',updatePaintColor);
 
 //starts with a 8x8 grid
 populateGrid(8)

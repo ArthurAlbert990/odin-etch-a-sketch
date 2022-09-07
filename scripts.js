@@ -42,11 +42,20 @@ function populateGrid(gridSize){
     return ;
 }
 
-//FUNÇÃO PARA DESENHAR:;
 
+//FUNÇÃO PARA DESENHAR:;
+//rainbow gera uma cor randômica
 function draw(e){
-    e.target.classList.add('active');
-    return ;
+    e.target.classList.add('active')
+    e.target.style.setProperty('background-color','var(--paintColor)')
+
+    let rainbowCheck = document.querySelector('.rainbow-check')
+    if (rainbowCheck.checked){
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        e.target.style.setProperty('background-color',`#${randomColor}`)
+    }
+    
+    return  ;
 }
 
 function promptGridConfig(){
@@ -64,6 +73,7 @@ function updatePaintColor(e){
     //alterar o atributo do css, não a variável.
     return root.style.setProperty('--paintColor',e.target.value);
 }
+
 
 //======================================= EVENT LISTENERS ===========================
 //===================================================================================
